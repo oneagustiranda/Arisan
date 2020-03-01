@@ -1,0 +1,1 @@
+export const mainUrl = 'https://obscure-island-11694.herokuapp.com';

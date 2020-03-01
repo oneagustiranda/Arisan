@@ -1,17 +1,47 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+<ion-header [translucent]="true" color="primary">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="people-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title><b>Arisan</b> | Users</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item-sliding *ngFor="let user of users" id="item100">
+      <ion-item href="#">
+        <ion-avatar slot="start">
+        <img src="../../assets/img/user.png">
+      </ion-avatar>
+        <ion-label>
+          <h2><b>{{user.fullname}}</b></h2>
+          <h3>{{user.no_telp}}</h3>
+          <p>{{user.group}}</p>
+        </ion-label>
+        
+      </ion-item>
+  
+      <ion-item-options side="start">
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+  
+      <ion-item-options side="end">
+        <ion-item-option color="success">
+          <ion-icon slot="icon-only" name="checkmark-circle"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  
 </ion-content>
+

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add New Group</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closePage()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input [(ngModel)]="group.name" placeholder="Group Name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label  position="stacked">Amount</ion-label>
+    <ion-input [(ngModel)]="group.amount" type="number" placeholder="Amount Target"></ion-input>
+  </ion-item>
+  
+  <ion-button expand="block" (click)="submit()">SUBMIT</ion-button>
+  
+  
+</ion-content>
