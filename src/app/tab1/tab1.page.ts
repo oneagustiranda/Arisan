@@ -3,7 +3,7 @@ import { GroupService } from '../services/group.service';
 import { UtilsService } from '../services/utils.service';
 import { ModalController, AlertController} from '@ionic/angular';
 import { GroupAddPage } from '../group-add/group-add.page';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -15,8 +15,8 @@ export class Tab1Page {
     private groupService: GroupService,
     private utils: UtilsService,
     private modalCtrl: ModalController,
-    private alertCtrl: AlertController
-
+    private alertCtrl: AlertController,
+    private router: Router
     ) {}
   
   //Tampilkan data users
@@ -55,7 +55,10 @@ export class Tab1Page {
     });
     return await modal.present();
   }
-
+  goDetail(group){
+    console.log('id:' + group.id);
+    this.router.navigate(['/group-detail/' + group.id]);
+  }
   async delete(group){
     const alert = await this.alertCtrl.create({
       header: 'Konfirmasi',

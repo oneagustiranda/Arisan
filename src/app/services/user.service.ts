@@ -12,4 +12,8 @@ export class UserService {
   getAllUsers(): Observable<Object>{
     return this.http.get(mainUrl + '/api/users');
   }
+
+  getAllUsersWithGroup(groupId): Observable<Object>{
+    return this.http.get(mainUrl + '/api/users/group/' + groupId );
+  }
 }

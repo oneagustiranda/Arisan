@@ -23,4 +23,7 @@ export class GroupService {
     return this.http.delete(
       mainUrl + '/api/groups/' + id)
   }
+  getGroup(id): Observable<Object>{
+    return this.http.get(mainUrl + '/api/groups/' + id);
+  }
 }

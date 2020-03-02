@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Group Description</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goEdit()">
+        <ion-icon  name="create"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Amount: {{group.amount}}</ion-card-subtitle>
+      <ion-card-title>{{group.name | uppercase}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img src="{{group.images}}">
+      <p>amount: {{group.amount}}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item-sliding *ngFor="let user of users" id="item100">
+      <ion-item href="#">
+        <ion-avatar slot="start">
+        <img src="../../assets/img/user.png">
+      </ion-avatar>
+        <ion-label>
+          <h2><b>{{user.fullname}}</b></h2>
+          <h3>{{user.no_telp}}</h3>
+          <p>{{user.group}}</p>
+        </ion-label>
+        
+      </ion-item>
+  
+      <ion-item-options side="start">
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+  
+      <ion-item-options side="end">
+        <ion-item-option color="success">
+          <ion-icon slot="icon-only" name="checkmark-circle"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'group-add',
     loadChildren: () => import('./group-add/group-add.module').then( m => m.GroupAddPageModule)
+  },
+  {
+    path: 'group-detail/:id',
+    loadChildren: () => import('./group-detail/group-detail.module').then( m => m.GroupDetailPageModule)
   }
 ];
 @NgModule({

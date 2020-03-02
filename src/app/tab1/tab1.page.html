@@ -21,7 +21,7 @@
   </ion-refresher>
   <ion-list>
     <ion-item-sliding *ngFor="let group of groups" id="item100">
-      <ion-item href="#">
+      <ion-item (click)="goDetail(group)">
         <ion-avatar slot="start">
         <img src="../../assets/img/user.png">
       </ion-avatar>
