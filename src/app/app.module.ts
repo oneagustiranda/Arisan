@@ -12,10 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { GroupAddPage } from './group-add/group-add.page';
 import { FormsModule } from '@angular/forms';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [AppComponent, GroupAddPage],
   entryComponents: [GroupAddPage],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule, FormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule, FormsModule, IonicStorageModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,

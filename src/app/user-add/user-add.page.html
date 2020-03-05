@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/group-detail/{{groupId}}"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Fullname</ion-label>
+    <ion-input [(ngModel)]="users.fullname" placeholder="Fullname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label  position="stacked">Username</ion-label>
+    <ion-input [(ngModel)]="users.username" type="text" placeholder="Username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label  position="stacked">Email</ion-label>
+    <ion-input [(ngModel)]="users.email" type="text" placeholder="Email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label  position="stacked">Password</ion-label>
+    <ion-input [(ngModel)]="users.password" type="text" placeholder="Password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label  position="stacked">No Telp</ion-label>
+    <ion-input [(ngModel)]="users.no_telp" type="text" placeholder="No Telp"></ion-input>
+  </ion-item>
+  
+  <ion-button expand="block" (click)="submit()">SUBMIT</ion-button>
+</ion-content>

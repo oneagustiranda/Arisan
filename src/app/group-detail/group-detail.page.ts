@@ -4,6 +4,8 @@ import { GroupService } from '../services/group.service';
 import { UserService } from '../services/user.service';
 import { mainUrl } from '../services/config';
 import { Route } from '@angular/compiler/src/core';
+import { NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-group-detail',
@@ -19,14 +21,15 @@ export class GroupDetailPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private groupService: GroupService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    public storage: Storage
   ) { }
 
   getData(){
     this.groupId = this.activatedRoute.snapshot.paramMap.get('id');
     this.groupService.getGroup(this.groupId).subscribe((response) =>{
       this.group = response;
-      this.group.images = mainUrl + '/img/' + this.group.images;
+      
       console.log(this.group);
     })
   }
@@ -44,5 +47,16 @@ export class GroupDetailPage implements OnInit {
   ionViewWillEnter(){
     this.getData();
     this.getUsersData();
+  }
+
+  ionViewDidEnter(){
+    this.getData();
+    this.getUsersData();
+  }
+
+  AddUser(group){
+    this.storage.set('group_name', group.name);
+    console.log('id:' + group.id +'name:' +group.name);
+    this.router.navigate(['/user-add/' + group.id]);
   }
 }

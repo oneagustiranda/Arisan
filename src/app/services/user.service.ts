@@ -16,4 +16,10 @@ export class UserService {
   getAllUsersWithGroup(groupId): Observable<Object>{
     return this.http.get(mainUrl + '/api/users/group/' + groupId );
   }
+
+  createUser(user): Observable<Object>{
+    return this.http.post(
+      mainUrl + '/api/users/',
+      user);
+  }
 }

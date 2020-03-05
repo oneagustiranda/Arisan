@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'group-detail/:id',
     loadChildren: () => import('./group-detail/group-detail.module').then( m => m.GroupDetailPageModule)
+  },
+  {
+    path: 'user-add/:id',
+    loadChildren: () => import('./user-add/user-add.module').then( m => m.UserAddPageModule)
   }
 ];
 @NgModule({
