@@ -30,6 +30,7 @@ export class GroupAddPage implements OnInit {
   }
   closePage(){
     this.modalCtrl.dismiss();
+  
   }
 
 }

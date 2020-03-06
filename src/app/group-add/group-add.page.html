@@ -18,8 +18,21 @@
     <ion-input [(ngModel)]="group.name" placeholder="Group Name"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label  position="stacked">Amount</ion-label>
-    <ion-input [(ngModel)]="group.amount" type="number" placeholder="Amount Target"></ion-input>
+    <ion-label position="stacked">Description</ion-label>
+    <ion-input [(ngModel)]="group.desc" placeholder="Group Description"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label  position="stacked">Jumlah bayar</ion-label>
+    <ion-input [(ngModel)]="group.amount" type="number" placeholder="Jumlah Bayar"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Periode</ion-label>
+    <ion-select value="10" [(ngModel)]="group.dayRemaining">
+      <ion-select-option value="10">10 hari</ion-select-option>
+      <ion-select-option value="20">20 hari</ion-select-option>
+      <ion-select-option value="30">30 hari</ion-select-option>
+     
+    </ion-select>
   </ion-item>
   
   <ion-button expand="block" (click)="submit()">SUBMIT</ion-button>

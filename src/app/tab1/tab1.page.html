@@ -27,7 +27,7 @@
       </ion-avatar>
         <ion-label>
           <h2><b>{{group.name}}</b></h2>
-          <h2><ion-icon name="wallet-outline"></ion-icon> Rp.{{group.amount}}</h2>
+          <h2><ion-icon name="wallet-outline"></ion-icon> Rp.{{group.amount | number : fractionSize}}</h2>
           <p></p>
         </ion-label>
         
