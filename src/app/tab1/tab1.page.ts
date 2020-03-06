@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GroupService } from '../services/group.service';
+import { UserService } from '../services/user.service';
 import { UtilsService } from '../services/utils.service';
 import { ModalController, AlertController} from '@ionic/angular';
 import { GroupAddPage } from '../group-add/group-add.page';
@@ -13,6 +14,7 @@ export class Tab1Page {
   groups: any = [];
   constructor(
     private groupService: GroupService,
+    private userService: UserService,
     private utils: UtilsService,
     private modalCtrl: ModalController,
     private alertCtrl: AlertController,
@@ -62,7 +64,7 @@ export class Tab1Page {
   async delete(group){
     const alert = await this.alertCtrl.create({
       header: 'Konfirmasi',
-      message: 'Apakah anda yakin akan menghapus group <strong>' + group.name + '</strong>',
+      message: 'Apakah anda yakin akan menghapus group <strong>' + group.name + '</strong> dan menghapus semua user yang terdaftar di group ini',
       buttons: [
         {
           text: 'Cancel',
@@ -77,6 +79,14 @@ export class Tab1Page {
           handler: () => {
             console.log('Confirm Okay');
             this.groupService.deleteGroup(group.id).subscribe((response) =>{
+              console.log(response);
+              
+              this.getData();
+            }, (err) => {
+              console.log(JSON.stringify(err));
+              
+            });
+            this.userService.deleteUserByGroup(group.id).subscribe((response) =>{
               console.log(response);
               this.utils.showToast('Berhasil DiHapus');
               this.getData();

@@ -22,4 +22,7 @@ export class UserService {
       mainUrl + '/api/users/',
       user);
   }
+  deleteUserByGroup(id): Observable<Object>{
+    return this.http.delete(mainUrl + '/api/users/group/' + id);
+  }
 }
