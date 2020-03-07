@@ -65,7 +65,7 @@
   </ion-fab>
 
   <ion-fab horizontal="start" vertical="bottom" slot="fixed">
-    <ion-badge color="danger" id="notifications-badge">11</ion-badge>
+    <ion-badge color="danger" id="notifications-badge">{{usersUnpaid.length}}</ion-badge>
     <ion-fab-button color="dark" (click)="ShowUnpaidUser(group)" id="notification-button">
       
       <ion-icon name="person-outline"></ion-icon>

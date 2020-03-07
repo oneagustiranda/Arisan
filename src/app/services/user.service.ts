@@ -23,10 +23,10 @@ export class UserService {
   createUser(user): Observable<Object>{
     return this.http.post(mainUrl + '/api/users/', user);
   }
-  UpdateToPaidUser(groupId): Observable<Object>{
-    return this.http.put(mainUrl  + '/api/users/group/', groupId);
+  UpdateToPaidUser(groupId, username): Observable<Object>{
+    return this.http.put(mainUrl  + '/api/users/group/' + groupId + '/' + username, username);
   }
   deleteUserByGroup(id): Observable<Object>{
-    return this.http.delete(mainUrl + '/api/users/group/' + id);
+    return this.http.delete(mainUrl + '/api/users/group/' + id );
   }
 }

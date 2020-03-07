@@ -10,6 +10,7 @@ import { UserService } from '../services/user.service';
 export class UnpaidUserPage implements OnInit {
   private groupId = '';
   users: any = [];
+  myDate: String = new Date().toISOString();
   constructor(
     private activatedRoute: ActivatedRoute,
     private userService: UserService
@@ -37,8 +38,8 @@ export class UnpaidUserPage implements OnInit {
       console.log(this.users);
     })
   }
-  UpdateToPaidUser(groupId){
-    this.userService.UpdateToPaidUser(groupId).subscribe((response) =>{
+  UpdateToPaidUser(groupId, username){
+    this.userService.UpdateToPaidUser(groupId, username).subscribe((response) =>{
       this.users = response;
       console.log(this.users);
       this.getData();

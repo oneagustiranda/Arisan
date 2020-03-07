@@ -15,6 +15,7 @@ import { Storage } from '@ionic/storage';
 export class GroupDetailPage implements OnInit {
   group: any = {};
   users: any = [];
+  usersUnpaid: any = [];
   groupId = '';
   
   constructor(
@@ -41,17 +42,26 @@ export class GroupDetailPage implements OnInit {
     })
   }
 
+  getUnpaidUsersData(){
+    this.userService.getAllUsersWithGroupAndUnpaid(this.groupId).subscribe((response) =>{
+      this.usersUnpaid = response;
+      console.log(this.usersUnpaid);
+    })
+  }
+
   ngOnInit() {
     
   }
   ionViewWillEnter(){
     this.getData();
     this.getUsersData();
+    this.getUnpaidUsersData();
   }
 
   ionViewDidEnter(){
     this.getData();
     this.getUsersData();
+    this.getUnpaidUsersData();
   }
 
   AddUser(group){
