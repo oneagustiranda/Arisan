@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'user-add/:id',
     loadChildren: () => import('./user-add/user-add.module').then( m => m.UserAddPageModule)
+  },
+  {
+    path: 'unpaid-user/:id',
+    loadChildren: () => import('./unpaid-user/unpaid-user.module').then( m => m.UnpaidUserPageModule)
   }
 ];
 @NgModule({

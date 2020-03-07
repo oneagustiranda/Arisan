@@ -34,6 +34,7 @@ export class UserAddPage implements OnInit {
   }
 
   submit(){
+    this.users.paid = '0';
     this.users.group_id = this.groupId;
     console.log(this.users.group);
     this.users.img = 'user.png';

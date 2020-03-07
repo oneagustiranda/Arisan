@@ -19,6 +19,7 @@ export class GroupAddPage implements OnInit {
   }
 
   submit(){
+    this.group.dayRemaining = this.group.period;
     this.groupService.createGroup(this.group).subscribe((response) =>{
       console.log(response);
       this.utils.showToast('Berhasil Ditambahkan');

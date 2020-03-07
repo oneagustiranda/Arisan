@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
     </ion-buttons>
     <ion-title>Group Description</ion-title>
     <ion-buttons slot="end">
@@ -18,13 +18,17 @@
       
       <ion-card-title>{{group.name | uppercase}}</ion-card-title>
       <ion-card-subtitle>Jumlah yang harus dibayar: <b>Rp.{{group.amount | number : fractionSize}}</b> </ion-card-subtitle>
-      <ion-card-subtitle>Target Total: <b>Rp.{{group.amount * users.length | number : fractionSize}}</b> </ion-card-subtitle>
-      <ion-card-subtitle>Hari yang tersisa: <b> {{group.dayRemaining}} hari</b> </ion-card-subtitle>
+      <ion-card-subtitle>Target Total: <b>Rp.{{group.amount * users.length * group.dayRemaining | number : fractionSize}}</b> </ion-card-subtitle>
+      <ion-card-subtitle>Hari yang tersisa: <b> {{group.period}} hari</b> </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <p>Description: {{group.desc}}</p>
+      <p>Description: <i>{{group.desc}}</i></p>
     </ion-card-content>
   </ion-card>
+  <ion-toolbar>
+    <ion-title>Users</ion-title>
+  </ion-toolbar>
+
   <ion-list>
     <ion-item-sliding *ngFor="let user of users" id="item100">
       <ion-item href="#">
@@ -53,9 +57,19 @@
     </ion-item-sliding>
   </ion-list>
 
+  
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="AddUser(group)">
+    <ion-fab-button color="dark" (click)="AddUser(group)">
       <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab horizontal="start" vertical="bottom" slot="fixed">
+    <ion-badge color="danger" id="notifications-badge">11</ion-badge>
+    <ion-fab-button color="dark" (click)="ShowUnpaidUser(group)" id="notification-button">
+      
+      <ion-icon name="person-outline"></ion-icon>
+      
     </ion-fab-button>
   </ion-fab>
 </ion-content>

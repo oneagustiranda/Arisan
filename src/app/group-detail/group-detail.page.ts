@@ -59,4 +59,8 @@ export class GroupDetailPage implements OnInit {
     console.log('id:' + group.id +'name:' +group.name);
     this.router.navigate(['/user-add/' + group.id]);
   }
+
+  ShowUnpaidUser(group){
+    this.router.navigate(['/unpaid-user/' + group.id]);
+  }
 }
