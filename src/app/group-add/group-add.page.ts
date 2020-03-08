@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import { UtilsService } from '../services/utils.service';
 import { GroupService } from '../services/group.service';
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-group-add',
   templateUrl: './group-add.page.html',
@@ -19,7 +21,8 @@ export class GroupAddPage implements OnInit {
   }
 
   submit(){
-    this.group.dayRemaining = this.group.period;
+    
+    this.group.endDate = moment().add(this.group.period, 'days').format();
     this.groupService.createGroup(this.group).subscribe((response) =>{
       console.log(response);
       this.utils.showToast('Berhasil Ditambahkan');

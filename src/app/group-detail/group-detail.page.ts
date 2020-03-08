@@ -6,6 +6,7 @@ import { mainUrl } from '../services/config';
 import { Route } from '@angular/compiler/src/core';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-group-detail',
@@ -17,6 +18,7 @@ export class GroupDetailPage implements OnInit {
   users: any = [];
   usersUnpaid: any = [];
   groupId = '';
+  dayRemaining: any;
   
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -32,6 +34,13 @@ export class GroupDetailPage implements OnInit {
       this.group = response;
       
       console.log(this.group);
+
+      var today = moment();
+      var endDay = this.group.endDate;
+      this.dayRemaining = today.diff(endDay, 'days');
+      this.dayRemaining -= 1;
+      this.dayRemaining = Math.abs(this.dayRemaining);
+      console.log(this.dayRemaining);
     })
   }
 
