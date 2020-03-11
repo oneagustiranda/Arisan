@@ -1,3 +1,7 @@
 .bg-img {
     --background: url('../../assets/icon/welcome.png') 0 0/auto 100% no-repeat;
 }
+section:not(.full-width),
+    .full-width > header {
+      padding: 0 10px;
+    }

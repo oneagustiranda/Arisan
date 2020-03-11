@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { AnOtherPage } from '../../app/login/login.page';
+//import { NavController } from 'ionic-angular';
+//import { AnOtherPage } from '../../app/login/login.page';
 
-anOtherPage: AnOtherPage;
+//anOtherPage: '../../app/login/login.page';
 
 @Component({
   selector: 'app-welcome',
@@ -11,13 +11,13 @@ anOtherPage: AnOtherPage;
 })
 export class WelcomePage implements OnInit {
 
-  constructor(public navCtrl: NavController) { }
+  constructor(/*public navCtrl: NavController*/) { }
 
   ngOnInit() {
   }
 
-  goAnOtherPage() {
-    this.navCtrl.setRoot(anOtherPage);
-  }
+/*  goAnOtherPage() {
+    this.navCtrl.setRoot('../../app/login/login.page');
+  }*/
 
 }
