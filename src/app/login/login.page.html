@@ -1,3 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content class="ion-padding">
-  ini page login
+  <div class="login">
+    <h2 style="text-align: center;font-weight: bold;">Log In</h2>
+    <ion-input placeholder="Email"></ion-input>
+    <ion-input placeholder="Password" type="password"></ion-input>
+    <ion-button [routerLink]="['/tabs']" color="light" expand="full">LOGIN</ion-button>
+  </div>
 </ion-content>
