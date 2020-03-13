@@ -6,6 +6,7 @@ import { mainUrl } from '../services/config';
 import { Route } from '@angular/compiler/src/core';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-group-detail',
@@ -15,7 +16,9 @@ import { Storage } from '@ionic/storage';
 export class GroupDetailPage implements OnInit {
   group: any = {};
   users: any = [];
+  usersUnpaid: any = [];
   groupId = '';
+  dayRemaining: any;
   
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -31,6 +34,13 @@ export class GroupDetailPage implements OnInit {
       this.group = response;
       
       console.log(this.group);
+
+      var today = moment();
+      var endDay = this.group.endDate;
+      this.dayRemaining = today.diff(endDay, 'days');
+      this.dayRemaining -= 1;
+      this.dayRemaining = Math.abs(this.dayRemaining);
+      console.log(this.dayRemaining);
     })
   }
 
@@ -41,22 +51,35 @@ export class GroupDetailPage implements OnInit {
     })
   }
 
+  getUnpaidUsersData(){
+    this.userService.getAllUsersWithGroupAndUnpaid(this.groupId).subscribe((response) =>{
+      this.usersUnpaid = response;
+      console.log(this.usersUnpaid);
+    })
+  }
+
   ngOnInit() {
     
   }
   ionViewWillEnter(){
     this.getData();
     this.getUsersData();
+    this.getUnpaidUsersData();
   }
 
   ionViewDidEnter(){
     this.getData();
     this.getUsersData();
+    this.getUnpaidUsersData();
   }
 
   AddUser(group){
     this.storage.set('group_name', group.name);
     console.log('id:' + group.id +'name:' +group.name);
     this.router.navigate(['/user-add/' + group.id]);
+  }
+
+  ShowUnpaidUser(group){
+    this.router.navigate(['/unpaid-user/' + group.id]);
   }
 }

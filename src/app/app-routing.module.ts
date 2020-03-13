@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'unpaid-user/:id',
+    loadChildren: () => import('./unpaid-user/unpaid-user.module').then( m => m.UnpaidUserPageModule)
   }
 
 ];

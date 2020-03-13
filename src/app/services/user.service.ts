@@ -17,9 +17,16 @@ export class UserService {
     return this.http.get(mainUrl + '/api/users/group/' + groupId );
   }
 
+  getAllUsersWithGroupAndUnpaid(groupId): Observable<Object>{
+    return this.http.get(mainUrl + '/api/users/group/' + groupId + '/unpaid');
+  }
   createUser(user): Observable<Object>{
-    return this.http.post(
-      mainUrl + '/api/users/',
-      user);
+    return this.http.post(mainUrl + '/api/users/', user);
+  }
+  UpdateToPaidUser(groupId, username): Observable<Object>{
+    return this.http.put(mainUrl  + '/api/users/group/' + groupId + '/' + username, username);
+  }
+  deleteUserByGroup(id): Observable<Object>{
+    return this.http.delete(mainUrl + '/api/users/group/' + id );
   }
 }
