@@ -3,9 +3,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+     path: '',
+     loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule)
   },
+  //{
+  //  path: '',
+  //  loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  //},
   {
     path: 'group-add',
     loadChildren: () => import('./group-add/group-add.module').then( m => m.GroupAddPageModule)
@@ -19,9 +23,22 @@ const routes: Routes = [
     loadChildren: () => import('./user-add/user-add.module').then( m => m.UserAddPageModule)
   },
   {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
     path: 'unpaid-user/:id',
     loadChildren: () => import('./unpaid-user/unpaid-user.module').then( m => m.UnpaidUserPageModule)
   }
+
 ];
 @NgModule({
   imports: [

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <img src="../../assets/icon/logo.png" class="center">
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="login">
+    <h2 style="text-align: center;font-weight: bold;color: #3880ff;">Create Account</h2>
+    <ion-item>
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-input placeholder="Username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail-outline"></ion-icon>
+      <ion-input placeholder="Email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="lock-closed-outline"></ion-icon>
+      <ion-input placeholder="Password" type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="lock-closed-outline"></ion-icon>
+      <ion-input placeholder="Repeat Password" type="password"></ion-input>
+    </ion-item>
+    <ion-button [routerLink]="['/tabs']" color="primary" expand="full">SIGN UP</ion-button>
+    <ion-text class="ion-text-center">
+      <h6>Already have an account?  <a [routerLink]="['/login']">Login</a></h6>
+    </ion-text>
+  </div>
+</ion-content>
