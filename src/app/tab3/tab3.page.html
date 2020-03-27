@@ -14,7 +14,18 @@
 
 <ion-content [fullscreen]="true">
   
+  <ion-item style="margin-top: 40%;">
+    <ion-label>Select Group</ion-label>
+    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+      <ion-select-option value="brown">Group 1</ion-select-option>
+      <ion-select-option value="blonde">Group 2</ion-select-option>
+      <ion-select-option value="black">Group 3</ion-select-option>
+      <ion-select-option value="red">Group 4</ion-select-option>
+    </ion-select>
+  </ion-item>
 
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<div style="text-align: center;">
+  <ion-button shape="round"  class="shake">Shake </ion-button>
+</div>
+  
 </ion-content>
